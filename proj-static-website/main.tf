@@ -3,15 +3,15 @@ resource "aws_s3_bucket" "example-bucket" {
 }
 
 resource "aws_s3_object" "index_html" {
-  bucket = aws_s3_bucket.example-bucket.bucket
-  source = "./index.html"
-  key    = "index.html"
+  bucket       = aws_s3_bucket.example-bucket.bucket
+  source       = "./index.html"
+  key          = "index.html"
   content_type = "text/html"
 }
 resource "aws_s3_object" "style_css" {
-  bucket = aws_s3_bucket.example-bucket.bucket
-  source = "./style.css"
-  key    = "style.css"
+  bucket       = aws_s3_bucket.example-bucket.bucket
+  source       = "./style.css"
+  key          = "style.css"
   content_type = "text/css"
 }
 
@@ -31,10 +31,10 @@ resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
       "Version" = "2012-10-17",
       "Statement" = [
         {
-          "Sid" = "PublicReadGetObject",
-          "Effect" = "Allow",
+          "Sid"       = "PublicReadGetObject",
+          "Effect"    = "Allow",
           "Principal" = "*",
-          "Action" = "s3:GetObject",
+          "Action"    = "s3:GetObject",
           "Resource" = [
             "arn:aws:s3:::${aws_s3_bucket.example-bucket.bucket}/*"
           ]
@@ -51,16 +51,16 @@ resource "aws_s3_bucket_website_configuration" "mywebapp" {
     suffix = "index.html"
   }
 
-#   error_document {
-#     key = "error.html"
-#   }
+  #   error_document {
+  #     key = "error.html"
+  #   }
 
-#   routing_rule {
-#     condition {
-#       key_prefix_equals = "docs/"
-#     }
-#     redirect {
-#       replace_key_prefix_with = "documents/"
-#     }
-#   }
+  #   routing_rule {
+  #     condition {
+  #       key_prefix_equals = "docs/"
+  #     }
+  #     redirect {
+  #       replace_key_prefix_with = "documents/"
+  #     }
+  #   }
 }

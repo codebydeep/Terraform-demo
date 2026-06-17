@@ -41,14 +41,14 @@ resource "aws_route_table" "my-rt" {
 }
 
 resource "aws_route_table_association" "public-sub" {
-  subnet_id = aws_subnet.public-subnet.id
+  subnet_id      = aws_subnet.public-subnet.id
   route_table_id = aws_route_table.my-rt.id
 }
 
 # // EC2 Instance - 
 resource "aws_instance" "ec2-server" {
-  ami = "ami-0aba19e56f3eaec05"
-  subnet_id = aws_subnet.public-subnet.id
+  ami           = "ami-0aba19e56f3eaec05"
+  subnet_id     = aws_subnet.public-subnet.id
   instance_type = "t3.micro"
 
   tags = {

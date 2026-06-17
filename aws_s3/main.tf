@@ -5,5 +5,5 @@ resource "aws_s3_bucket" "bucket-example" {
 resource "aws_s3_object" "example-object" {
   bucket = aws_s3_bucket.bucket-example.bucket
   source = "./my-file.txt"
-  key = "deepansh.txt"
+  key    = "deepansh.txt"
 }

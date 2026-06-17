@@ -19,6 +19,6 @@ output "output" {
   #   value = length(var.string_list)
   #   value = join(":", var.string_list)
   #   value = contains(var.string_list, "serv1")
-    value = toset(var.string_list)
+  value = toset(var.string_list)
 }
 
